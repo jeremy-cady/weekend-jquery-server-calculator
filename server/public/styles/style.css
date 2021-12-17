@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+}
+
+.buttons {
+    width: 47px;
+} 
+
+h1 {
+    margin-top: 200px;
+    margin-bottom: 40px;
+}
+
+#currentTotal {
+    margin-top: 80px;
+}
+
+#calculations{
+    margin-top: 80px;
+}
