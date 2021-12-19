@@ -37,6 +37,10 @@ function newCalculation(event) {
         .then((response) => {
             console.log('POST response', response);
             refresh();
+        })
+        .catch((error) => {
+            console.log("POST failed", error);
+            alert('Something is busted! 😭');
         });
 }
 
@@ -54,7 +58,11 @@ function refresh() {
         .then((response) => {
             console.log('AJAX request complete!', response);
             render(response);
-        });
+        })
+        .catch((error) => {
+            console.log("GET request failed!", error);
+            alert('Something busted! 🤬');
+        })
 }
 
 
