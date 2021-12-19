@@ -2,28 +2,32 @@ console.log('in client.js');
 
 $(document).ready(onReady);
 
+let operator = '';
+
 
 function onReady() {
     console.log('so ready');
 
-    //get calculations from server
-
-
     // listeners
-    $('#equalsButton').on('click', )
-    
+    $('#equalsButton').on('click', newCalculation);
+    $('.calcButtons').on('click', chooseOperator);
+    $('#clearButton').on('click', clearFields);
     
 };
 
 
-function enterData(event) {
-    let calculation = {
-        inputOne: $('#inputOne').val(),
-        inputTwo: $('#inputTwo').val(),
-        currentTotal: $('#totalField').val()
 
-    };
-    console.log('calculation:', calculation);
+
+function newCalculation(event) {
+    console.log('inside newCalculation')
+    
+    const calculation = {
+        num1: $('#inputOne').val(),
+        num2: $('#inputTwo').val(),
+        operator: operator
+    }
+
+    console.log('calculation is:', calculation);
     
     $.ajax({
         method: 'POST',
@@ -35,6 +39,8 @@ function enterData(event) {
             refresh();
         });
 }
+
+
 
 
 function refresh() {
@@ -52,8 +58,41 @@ function refresh() {
 }
 
 
-function render(state) {
+
+
+function render(calculations) {
     console.log('in render');
+    $('#calcsList').empty();
+    
+    // render current result
+    $('#currentTotal').text(calculations[calculations.length -1].result);
+
+    // render each calculation
+    for(let calculation of calculations){ 
+        $('#calcsList').append(`
+            <li>
+                ${calculation.num1} 
+                ${calculation.operator}   
+                ${calculation.num2} =
+                ${calculation.result}    
+            </li>    
+        `)
+    }
+}
+
+
+
+
+function chooseOperator() {
+    console.log('in chooseOperator');
+    operator = $(this).text();
+}
+
+
+function clearFields() {
+    console.log('in clearFields');
+
+    $('.inputFields').val('');
     
 }
 

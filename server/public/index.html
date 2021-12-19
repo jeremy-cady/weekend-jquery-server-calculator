@@ -12,21 +12,31 @@
 <body>
     <h1>Server Side Calculator
         <div id="calculator">
-            <input class="inputFields" id="inputOne" type="number"/>
+            <input 
+                class="inputFields" 
+                id="inputOne" 
+                type="number"
+                placeholder="First number"
+                />
 
             <button class="calcButtons" id="sumButton">+</button>
             <button class="calcButtons" id="subtractButton">-</button>
             <button class="calcButtons" id="multiplyButton">*</button>
             <button class="calcButtons" id="divideButton">/</button>
         
-            <input class="inputFields" id="inputTwo" type="number"/>
+            <input 
+                class="inputFields" 
+                id="inputTwo" 
+                type="number"
+                placeholder="Second number"
+                />
         
-            <button class="calcButtons" id="equalsButton">=</button>
-            <button class="calcButtons" id="clearButton">C</button>
+            <button id="equalsButton">=</button>
+            <button id="clearButton">C</button>
         </div>
     </h1>
     <h2>
-        Current Total: <span id="currentTotal">0</span>
+        Current Result: <span id="currentTotal">0</span>
         <!-- current total goes here -->
     </h2>
     <h2 id="calculations">
