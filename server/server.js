@@ -70,7 +70,7 @@ let calculationsArray = [];
     // send code CREATED
     res.sendStatus(201);
  });
- 
+
 
   // listen on port 5000
   app.listen(port, () => {

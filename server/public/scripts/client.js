@@ -12,6 +12,7 @@ function onReady() {
     $('#equalsButton').on('click', newCalculation);
     $('.calcButtons').on('click', chooseOperator);
     $('#clearButton').on('click', clearFields);
+    getAllCalcs();
     
 };
 
@@ -102,6 +103,23 @@ function clearFields() {
 
     $('.inputFields').val('');
     
+}
+
+function getAllCalcs() {
+    console.log('in getAllCalcs');
+    
+    $.ajax({
+        method: 'GET',
+        url: '/calculator',
+    })
+    .then((response) => {
+        console.log('AJAX request complete!', response);
+        render(response);
+    })
+    .catch((error) => {
+        console.log("GET request failed!", error);
+        alert('Something busted! 🤬');
+    })
 }
 
 
